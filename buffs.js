@@ -1,4 +1,4 @@
-function MakeBuffs(){ // zrob statycznie 
+function MakeBuffs(){ // zrob statycznie
     this.number = 3;
     this.graph = [document.createElement("img"),document.createElement("img"),document.createElement("img"),
     document.createElement("img"),document.createElement("img"),document.createElement("img")];
@@ -19,7 +19,7 @@ function makeBuffsFunction()
         snake[snakeNumber].myBuffs.thin = true;
     }
     this.kolo_dobreSzybko= function (snakeNumber){
-        snake[snakeNumber].myBuffs.fast = true;
+        snake[snakeNumber].myBuffs.fast++;
     }
     this.kolo_wiecejkol= function (){
         buffs.timeToNext/=2;
@@ -43,7 +43,7 @@ function makeBuffsFunction()
         for(var a =0; a < players;a++){
         if(snakeNumber!=a){
                 snake[a].myBuffs.fat++;
-            }    
+            }
         }
     }
 }
