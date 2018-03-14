@@ -36,14 +36,14 @@ function makeSnake(color){
         }
         return 5;
     }
-    
+
 
 
     //bufs
     this.myBuffs = new makeSnakeBuffs();
-    
+
     }
-    
+
 function clearTableforTooYOungPoints(){
     for(var a = 0;a < 5;a ++){
         for(var i=0;i < 10;i++){
@@ -52,20 +52,20 @@ function clearTableforTooYOungPoints(){
     }
 }
 
-    
+
 function makeSnakeBuffs(){
             this.thin = false;
             this.thinLenght =0;
-    
-            this.fast = false;
+
+            this.fast = 0;
             this.fastLenght =0;
-    
+
             this.reverse = false;
             this.reverseLenght = 0;
-    
+
             this.fat = 0;
             this.fatLenght = 0;
-    
+
 }
 
 var snake = [ new makeSnake("red")];
@@ -73,7 +73,7 @@ var snake = [ new makeSnake("red")];
 
 function updateAngle(){
     if(keyHeldLeft){
-        
+
         snake[0].angle-=snake[0].radSpeed;
     }
     if(keyHeldRight){
@@ -85,7 +85,7 @@ function snakeUpdate(){
     updateAngle();
     moveSnake();
     snakeUpdateHole();
-    
+
 }
 
 function snakeUpdateHole(){
@@ -97,7 +97,7 @@ function snakeUpdateHole(){
         if(snake[0].lenghtToHole==1){
             battlefieldUpdate();
         }
-    
+
        if(snake[0].lenghtToHole==holeToLenght){
              snake[0].lenghtToHole=0;
              snake[0].toCheckAndDrow=false;
@@ -113,11 +113,10 @@ function snakeUpdateHole(){
     }
 }
 function moveSnake(){
-   
+
 
     snake[0].prevX=snake[0].x;
     snake[0].prevY=snake[0].y;
     snake[0].x+=Math.cos(snake[0].angle)*snake[0].speed;
     snake[0].y+=Math.sin(snake[0].angle)*snake[0].speed;
 }
- 
