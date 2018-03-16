@@ -19,12 +19,14 @@ window.onload = function(){
 
 }
 
+
+
 function moveEverything(){
     snakeUpdate();
     generalBuffs.genBuffs();
     if(checkColision(0)){
-        battlefieldUpdate();
         checkBuffs(0);
+        battlefieldUpdate();
 
     }
     pointsUpdate();

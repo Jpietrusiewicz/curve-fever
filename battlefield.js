@@ -11,6 +11,8 @@ var pointsTab=new Array(POINTS_HEIGHT*POINTS_WIDTH);
 //100 border
 
 
+
+
 function pointsClear(){
     for(var a=0; a < POINTS_HEIGHT*POINTS_WIDTH;a++){
         pointsTab[a]=0;
@@ -31,7 +33,7 @@ function pointsClear(){
 function buffsPointsUpdate(buffnumber){
   var buffsPointHelper;
   var xToBe = Math.floor(Math.random()*635) + 5 +150;
-  var yToBe = Math.floor(Math.random()*435) + 5 ;
+  var yToBe = Math.floor(Math.random()*550) + 5 ;
   pointsTab[yToBe*POINTS_WIDTH  + xToBe]= 60+buffnumber;
   for(var angl= 0; angl <2*Math.PI;angl+=Math.PI/40){
       buffsPointHelper=Math.floor(Math.cos(angl)*(20))+Math.floor(xToBe)+
@@ -95,7 +97,7 @@ function checkColision(snakeNumber){
                     return true;
                 }else {
                   if(pointsTab[temp]>=70&&pointsTab[temp]<80&&wasBufNotfChecked){
-                    console.log("zebrano");
+                    console.log("zebrano: "+(pointsTab[temp]-70));
                     switch (pointsTab[temp]-70) {
                       case 0:
                         generalBuffs.buffColected.kolo_dobreCienko(snakeNumber);
@@ -118,12 +120,15 @@ function checkColision(snakeNumber){
                       default:
                         console.log("co to za buff?");
                     };
+                    return true;
                   }
                 }
             }
     }
     return false;
 }
+
+
 
 
 function battlefieldBorders(){

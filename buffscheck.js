@@ -8,6 +8,9 @@ function checkBuffs(snakeNumber){
     if(((snake[snakeNumber].myBuffs.thin)&&snake[snakeNumber].myBuffs.thinLenght==0)){
         buffsActivators.makeHimThin(snakeNumber);
     }
+    if(snake[snakeNumber].myBuffs.reverse&&snake[snakeNumber].myBuffs.reverseLenght==0){
+      buffsActivators.makeHimReversed(snakeNumber);
+    }
 }
 
 var buffsActivators = new makeBuffsActivators();
@@ -21,7 +24,7 @@ function makeBuffsActivators(){
          console.log("jazda " + snake[snakeNumber].speed);
     }
     this.makeHimThin = function(snakeNumber){
-        snake[snakeNumber].radius--;
+        snake[snakeNumber].radius =2;
     }
     this.makeHimReversed = function (snakeNumber){
       console.log("steruj na odwrot pls");
