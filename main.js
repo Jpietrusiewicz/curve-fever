@@ -8,6 +8,7 @@ window.onload = function(){
 
     pointsClear();
     battlefieldUpdate();
+    loadImages();
     clearTableforTooYOungPoints();
 
     setInterval(updateAll,1000/FPS);
@@ -20,11 +21,11 @@ window.onload = function(){
 
 function moveEverything(){
     snakeUpdate();
+    generalBuffs.genBuffs();
     if(checkColision(0)){
         battlefieldUpdate();
-        console.log(snake[0].myBuffs.fast);
         checkBuffs(0);
-        // generalBuffs.buffColected.kolo_dobreSzybko(0);
+
     }
     pointsUpdate();
 }
@@ -45,9 +46,9 @@ function drawEverything(){
 var holeHelp = true;
 function drawSnakes(){
     if(snake[0].toCheckAndDrow){
-        paintCircle(snake[0].x,snake[0].y,snake[0].radius,snake[0].color);
-        paintCircle(snake[0].prevX,snake[0].prevY,snake[0].radius,snake[0].color);
-        holeHelp=true;
+      paintCircle(snake[0].x,snake[0].y,snake[0].radius,snake[0].color);
+      paintCircle(snake[0].prevX,snake[0].prevY,snake[0].radius,snake[0].color);
+      holeHelp=true;
 
     }
     else
