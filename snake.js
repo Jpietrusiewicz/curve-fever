@@ -81,8 +81,11 @@ function updateAngle(){
     }
 
 }
-function snakeUpdate(){
-    updateAngle();
+function snakeUpdate(speed){
+    if(speed%2==0)
+    {
+      updateAngle();
+    }
     moveSnake();
     snakeUpdateHole();
 

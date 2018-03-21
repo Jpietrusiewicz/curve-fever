@@ -21,8 +21,8 @@ window.onload = function(){
 
 
 
-function moveEverything(){
-    snakeUpdate();
+function moveEverything(speed){
+    snakeUpdate(speed);
     generalBuffs.genBuffs();
     if(checkColision(0)){
         checkBuffs(0);
@@ -36,7 +36,7 @@ function updateAll(){
     if(game){
       for(var a=0; a <=snake[0].myBuffs.fast;a++)
         {
-          moveEverything();
+          moveEverything(a);
           drawEverything();
         }
   }

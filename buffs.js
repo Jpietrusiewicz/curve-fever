@@ -1,4 +1,4 @@
-function MakeBuffs(){ // zrob statycznie
+function MakeBuffs(){
     this.number = 3;
     this.graph = [document.createElement("img"),document.createElement("img"),document.createElement("img"),
     document.createElement("img"),document.createElement("img"),document.createElement("img")];
