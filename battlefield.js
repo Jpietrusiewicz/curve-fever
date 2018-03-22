@@ -43,6 +43,7 @@ function buffsPointsUpdate(buffnumber){
       }
   }
   canvasContext.drawImage(generalBuffs.graph[buffnumber],xToBe-20,yToBe-20);
+  buffCleaner.updateTableOfBuffPoints(buffnumber,xToBe+yToBe*POINTS_WIDTH);
 }
 
 var pointsHelper;
@@ -103,7 +104,7 @@ function checkColision(snakeNumber){
                         generalBuffs.buffColected.kolo_dobreCienko(snakeNumber);
                         break;
                       case 1:
-                      generalBuffs.buffColected.kolo_dobreSzybko(snakeNumber);
+                        generalBuffs.buffColected.kolo_dobreSzybko(snakeNumber);
                         break;
                       case 2:
                         generalBuffs.buffColected.kolo_wiecejkol();
@@ -120,6 +121,18 @@ function checkColision(snakeNumber){
                       default:
                         console.log("co to za buff?");
                     };
+                    var cleaningHelper;
+                    var currSnakeIndex = snake[snakeNumber].x + snake[snakeNumber].y*POINTS_WIDTH;
+                    for(cleaningHelper =0; cleaningHelper < buffCleaner.buffsPointsTable[pointsTab[temp]-70].lenght;cleaningHelper++){
+                      if(buffCleaner.distance(currSnakeIndex,temp)){
+                        break;
+                      }
+
+                    }
+                    let buffnumber = pointsTab[temp]-70;
+                    console.log("buff w pkt: "+buffCleaner.buffsPointsTable[buffnumber][cleaningHelper] );
+                    buffCleaner.cleanBuffsPoints(buffCleaner.buffsPointsTable[buffnumber][cleaningHelper]%POINTS_WIDTH, Math.floor(buffCleaner.buffsPointsTable[pointsTab[temp]-70][cleaningHelper]/POINTS_WIDTH));
+                    buffCleaner.clearTableOfBuffPoints(buffnumber, cleaningHelper);
                     return true;
                   }
                 }

@@ -1,4 +1,5 @@
 function MakeBuffs(){
+    this.buffCounter = 6;
     this.number = 3;
     this.graph = [document.createElement("img"),document.createElement("img"),document.createElement("img"),
     document.createElement("img"),document.createElement("img"),document.createElement("img")];
@@ -59,7 +60,7 @@ function makeBuffsFunction()
         }
     }
 }
-var BuffCleaner = new buffCleaner();
+var buffCleaner = new BuffCleaner();
 function BuffCleaner(){ //1)wypierdalanie punktow 2) update punktow
   this.distance = function(index1, index2){
     leftX = index1%POINTS_WIDTH;
@@ -72,7 +73,9 @@ function BuffCleaner(){ //1)wypierdalanie punktow 2) update punktow
     return false;
   }
   this.buffsPointsTable = new Array(6);
-  buffsPointsTable.forEach(new Array());
+  for(var a=0 ;a <generalBuffs.buffCounter;a++){
+    this.buffsPointsTable[a] = new Array();
+  }
   this.cleanBuffsPoints = function (xToClear,yToClear) {
     pointsTab[yToClear*POINTS_WIDTH  + xToClear]= 0;
     for(var angl= 0; angl <2*Math.PI;angl+=Math.PI/40){
@@ -83,10 +86,12 @@ function BuffCleaner(){ //1)wypierdalanie punktow 2) update punktow
         }
     }
   }
-  this.clearTableOfBuffPoints = function(buffNumber,index){
-    buffsPointsTable[buffnumber].splice(index,1);
+  //spilce to check
+  this.clearTableOfBuffPoints = function(buffnumber,index){
+    this.buffsPointsTable[buffnumber].splice(index,1);
   }
   this.updateTableOfBuffPoints = function(buffNumber, index){
-    buffsPointsTable[buffNumber].push(index);
+    this.buffsPointsTable[buffNumber].push(index);
+    console.log(this.buffsPointsTable);
   }
 }
